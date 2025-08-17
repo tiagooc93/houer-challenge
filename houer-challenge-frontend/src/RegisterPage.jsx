@@ -41,15 +41,14 @@ function Register() {
         display="flex"
         width="400px"
       >
-        <Typography sx={{ fontSize: 40, fontWeight: "medium" }}>
-          MarketPlace
-        </Typography>
+        <Typography sx={{ fontSize: 40, fontWeight: "medium" }}></Typography>
       </Box>
       <Box
         display="flex"
         flexDirection="column"
         alignItems="center"
         minHeight="80vh"
+        minWidth="100vw"
         justifyContent="center"
         gap={2}
       >
