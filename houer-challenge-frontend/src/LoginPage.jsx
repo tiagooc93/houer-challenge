@@ -6,10 +6,12 @@ import {
   FormControlLabel,
   Checkbox,
 } from "@mui/material";
+
 import { useNavigate } from "react-router-dom";
 import FormControl from "@mui/material/FormControl";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "./AuthContext";
+import SimpleAppBar from "./AppBar";
 
 function Login() {
   const navigate = useNavigate();
@@ -18,7 +20,15 @@ function Login() {
   const [password, setPassword] = useState("");
   const [remember, setRemember] = useState();
 
+  const { isAuthenticated } = useAuth();
+
   const { login } = useAuth();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/");
+    }
+  }, []);
 
   const handleOnSubmitLogin = async () => {
     console.log("Sending login request");
@@ -44,17 +54,7 @@ function Login() {
   };
   return (
     <>
-      <Box
-        sx={{
-          p: 2,
-          fontWeight: "bold",
-          flexGrow: 1,
-          display: "flex",
-        }}
-        width="400px"
-      >
-        <Typography sx={{ fontSize: 40, fontWeight: "medium" }}></Typography>
-      </Box>
+      <SimpleAppBar login="true"></SimpleAppBar>
       <Box
         display="flex"
         flexDirection="column"
@@ -108,7 +108,7 @@ function Login() {
                   color="primary"
                 />
               }
-              label="Remember me"
+              label="Lembrar-me"
             />
 
             <Button
@@ -122,10 +122,10 @@ function Login() {
         </Box>
         <Button
           variant="outlined"
-          sx={{ border: 0, mt: 2 }}
+          sx={{ fontSize: 16, border: 0, mt: 2 }}
           onClick={() => navigate("/register")}
         >
-          Not a member ? Register now !
+          Não tem acesso ? Cadastre-se agora !
         </Button>
       </Box>
     </>
