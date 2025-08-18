@@ -6,7 +6,6 @@ import { useState } from "react";
 function Register() {
   const navigate = useNavigate();
 
-  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatedPassword, setRepeatedPassword] = useState("");
@@ -17,7 +16,7 @@ function Register() {
       const response = await fetch("http://localhost:8080/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, email, password }),
+        body: JSON.stringify({ email, password }),
       });
 
       if (!response.ok) throw new Error("Register failed");
@@ -53,7 +52,7 @@ function Register() {
         gap={2}
       >
         <Typography sx={{ fontSize: 40, fontWeight: "medium" }}>
-          Register
+          Registrar
         </Typography>
         <Box
           component="form"
@@ -66,16 +65,6 @@ function Register() {
           sx={{ boxShadow: 3, p: 6 }}
         >
           <>
-            <FormControl fullWidth margin="normal">
-              <TextField
-                type="text"
-                placeholder="username"
-                label="Username"
-                required
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-              />
-            </FormControl>
             <FormControl fullWidth margin="normal">
               <TextField
                 type="email"
@@ -91,7 +80,7 @@ function Register() {
               <TextField
                 type="password"
                 placeholder="******"
-                label="Password"
+                label="Senha"
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -101,7 +90,7 @@ function Register() {
               <TextField
                 type="password"
                 placeholder="******"
-                label="Repeat Password"
+                label="Repita a Senha"
                 required
                 value={repeatedPassword}
                 onChange={(e) => setRepeatedPassword(e.target.value)}
@@ -113,7 +102,7 @@ function Register() {
               sx={{ border: 1, mt: 2 }}
               onClick={handleOnSubmitRegister}
             >
-              Register !
+              Registrar !
             </Button>
           </>
         </Box>
