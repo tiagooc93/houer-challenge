@@ -20,7 +20,8 @@ O backend foi desenvolvido em Java com Spring Boot e o frontend em React. A apli
 - Registro e login de usuários com autenticação via JWT. 
 - Logout através da barra principal. 
 - Upload de arquivos CSV das dependências escolares de São Paulo (dados oficiais). 
-- Tabela interativa com CRUD completo (criação, visualização, atualização e remoção de dados). 
+- Tabela interativa com CRUD completo (criação, visualização, atualização e remoção de dados).
+- Testes automatizados.
 
 **IMPORTANTE:** 
 
