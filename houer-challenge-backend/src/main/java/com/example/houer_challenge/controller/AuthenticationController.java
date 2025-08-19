@@ -2,6 +2,7 @@ package com.example.houer_challenge.controller;
 
 import com.example.houer_challenge.dto.LoginDTO;
 import com.example.houer_challenge.dto.LoginResponseDTO;
+import com.example.houer_challenge.dto.RegisterDTO;
 import com.example.houer_challenge.model.UserInfo;
 import com.example.houer_challenge.repository.UserInfoRepository;
 import com.example.houer_challenge.service.TokenService;
@@ -39,7 +40,6 @@ public class AuthenticationController {
         }
         return ResponseEntity.badRequest().build();
     }
-
 
     @PostMapping("/register")
     public ResponseEntity register(@RequestBody RegisterDTO body){
