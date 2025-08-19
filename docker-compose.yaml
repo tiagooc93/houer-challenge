@@ -1,0 +1,49 @@
+services:
+  backend:
+    build:
+      context: ./houer-challenge-backend
+    container_name: houer-challenge-backend
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
+      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
+      
+      SECURITY_KEY: ${SECURITY_KEY}
+    depends_on:
+      - db
+    networks:
+      - my-network
+
+  frontend:
+    build:
+      context: ./houer-challenge-frontend
+    container_name: houer-challenge-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - my-network
+      
+  db:
+    image: postgres:15
+    container_name: schoolsdb
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_evolution_data:/var/lib/postgresql/data
+    networks:
+      - my-network
+
+volumes:
+  postgres_evolution_data:
+
+networks:
+  my-network:
+    driver: bridge
