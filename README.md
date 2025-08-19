@@ -30,7 +30,6 @@ Abaixo está um gif de demonstração da aplicação:
 **IMPORTANTE:** 
 
 - Tratamento de inconsistências do dataset: 
-  - `CODESC` utilizado como chave única, evitando inserções duplicadas. 
   - Remoção de caracteres invisíveis (ex.: `\uFEFF`). 
   - Resolução de headers duplicados: o segundo `CODESC` se torna `CODESC1`, e assim por diante. 
 
