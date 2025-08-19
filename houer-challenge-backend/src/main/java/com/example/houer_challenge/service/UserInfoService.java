@@ -15,6 +15,12 @@ public class UserInfoService {
 
     public UserInfo addUser(UserInfo user){
         log.info("Adding new user: {}", user.toString());
+
+        if (usersRepository.existsByEmail(user.getEmail())) {
+            throw new RuntimeException("Email already in use !");
+        }
+
+
         user = usersRepository.save(user);
 
         return user;
