@@ -165,7 +165,7 @@ function TablePage() {
       }}
     >
       <Typography variant="h4" gutterBottom>
-        Tabela - Dependencias Escolares
+        Tabela - Instalações físicas por Unidade Escolar
       </Typography>
 
       <Box sx={{ mt: 2 }}>

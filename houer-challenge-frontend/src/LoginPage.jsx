@@ -18,7 +18,7 @@ function Login() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [remember, setRemember] = useState();
+  const [remember, setRemember] = useState(true);
 
   const { isAuthenticated } = useAuth();
 
@@ -39,7 +39,10 @@ function Login() {
         body: JSON.stringify({ email, password }),
       });
 
-      if (!response.ok) throw new Error("Login failed");
+      if (!response.ok) {
+        alert("Usuário e/ou Senha Incorretos !");
+        throw new Error("Login failed");
+      }
 
       const data = await response.json();
       console.log("response: ", data);

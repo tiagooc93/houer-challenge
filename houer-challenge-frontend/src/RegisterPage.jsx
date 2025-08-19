@@ -10,8 +10,23 @@ function Register() {
   const [password, setPassword] = useState("");
   const [repeatedPassword, setRepeatedPassword] = useState("");
 
-  const handleOnSubmitRegister = async () => {
+  const handleOnSubmitRegister = async (e) => {
+    e.preventDefault();
+
     console.log("Sending login request");
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(email)) {
+      alert("Formato de e-mail inválido!");
+      return;
+    }
+
+    if (password !== repeatedPassword) {
+      alert("As senhas não coincidem!");
+      return;
+    }
+
     try {
       const response = await fetch("http://localhost:8080/auth/register", {
         method: "POST",

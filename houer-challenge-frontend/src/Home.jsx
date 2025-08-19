@@ -15,7 +15,6 @@ function Home() {
     if (!file) return;
 
     setFileName(file.name);
-    localStorage.setItem("fileName", fileName);
 
     const formData = new FormData();
     formData.append("file", file);
@@ -41,6 +40,8 @@ function Home() {
       navigate("/table");
     } catch (err) {
       console.error("Error uploading CSV:", err);
+      setFileName(null);
+      setIsLoading(false);
       alert("Erro ao enviar CSV");
     }
   };
@@ -62,18 +63,16 @@ function Home() {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            minHeight: "90vh",
+            height: "80vh",
             width: "100vw",
+            mb: 25,
 
             gap: 4,
           }}
         >
-          <Typography variant="h3">
+          <Typography variant="h4">
             {" "}
-            Visualizador - Escolas de São Paulo
-          </Typography>
-          <Typography variant="h5" gutterBottom>
-            Fazer Upload de CSV
+            Fazer upload do CSV a ser visualizado:
           </Typography>
           <input
             type="file"
@@ -84,8 +83,12 @@ function Home() {
           />
           {!isLoading && (
             <label htmlFor="csv-upload">
-              <Button variant="contained" component="span">
-                Import CSV
+              <Button
+                variant="contained"
+                component="span"
+                sx={{ pl: 3, pr: 3 }}
+              >
+                Importar CSV
               </Button>
             </label>
           )}
