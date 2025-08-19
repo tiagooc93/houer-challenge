@@ -75,7 +75,7 @@ Por padrão, os serviços estarão acessíveis nos seguintes endereços:
 Apenas abra o browser e visite o endereço:
 
 ```bash
-localhost:3000/
+localhost:3000/login
 ``````
 
 Caso não queira se registrar, utilize o usuário de testes ja disponível para logar:
