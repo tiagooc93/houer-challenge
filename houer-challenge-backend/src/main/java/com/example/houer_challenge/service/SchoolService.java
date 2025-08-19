@@ -368,13 +368,8 @@ public class SchoolService {
     public static List<Map<String, String>> parseCsv(MultipartFile file) throws IOException {
         List<Map<String, String>> result = new ArrayList<>();
 
-        CSVFormat FORMAT = CSVFormat.Builder.create()
-                .setDelimiter(';')
-                .setHeader()
-                .setSkipHeaderRecord(true)
-                .build();
-
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(file.getInputStream(), StandardCharsets.UTF_8))) {
+        try (
+                BufferedReader reader = new BufferedReader(new InputStreamReader(file.getInputStream(), StandardCharsets.UTF_8))) {
 
             String headerLine = reader.readLine();
             if (headerLine == null) return result;
@@ -387,17 +382,16 @@ public class SchoolService {
                 String h = clean(rawHeader);
                 int count = headerCount.getOrDefault(h, 0);
                 headerCount.put(h, count + 1);
-                if (count > 0) {
-                    h = h + count;
-                }
+                if (count > 0) h = h + count;
                 headers.add(h);
             }
-            Iterable<CSVRecord> records = FORMAT.parse(reader);
 
-            for (CSVRecord record : records) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] values = line.split(";", -1);
                 Map<String, String> row = new LinkedHashMap<>();
                 for (int i = 0; i < headers.size(); i++) {
-                    String value = i < record.size() ? clean(record.get(i)) : "";
+                    String value = i < values.length ? clean(values[i]) : "";
                     row.put(headers.get(i), value);
                 }
                 result.add(row);

@@ -23,9 +23,7 @@ public class School {
     private String mun;
     private String distr;
 
-    @Column(unique = true)
     private Integer codEsc;
-
     private String nomEsc;
     private Integer tipoEsc;
     private String tipoEscDesc;
