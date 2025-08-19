@@ -13,7 +13,6 @@ public class UserInfoService {
     @Autowired
     UserInfoRepository usersRepository;
 
-
     public UserInfo addUser(UserInfo user){
         log.info("Adding new user: {}", user.toString());
         user = usersRepository.save(user);
