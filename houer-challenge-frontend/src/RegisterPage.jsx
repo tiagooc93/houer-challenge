@@ -10,9 +10,7 @@ function Register() {
   const [password, setPassword] = useState("");
   const [repeatedPassword, setRepeatedPassword] = useState("");
 
-  const handleOnSubmitRegister = async (e) => {
-    e.preventDefault();
-
+  const handleOnSubmitRegister = async () => {
     console.log("Sending login request");
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

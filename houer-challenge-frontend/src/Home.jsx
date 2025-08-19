@@ -98,7 +98,7 @@ function Home() {
             </Typography>
           )}
 
-          {isLoading && <Typography>Enviado dados ...</Typography>}
+          {isLoading && <Typography>Enviando dados ...</Typography>}
         </Box>
       </Box>
     </>
