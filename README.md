@@ -5,6 +5,10 @@
 Aplicação full-stack que permite realizar upload e visualização de arquivos CSV contendo informações das dependências das escolas do estado de São Paulo.
 O backend foi desenvolvido em Java com Spring Boot e o frontend em React. A aplicação roda de forma integrada com PostgreSQL via Docker Compose.
 
+Abaixo está um gif de demonstração da aplicação:
+
+![Demo GIF](gif1.gif)
+
 
 ## Principais Tecnologias
 
