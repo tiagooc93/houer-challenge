@@ -1,9 +1,6 @@
 package com.example.houer_challenge.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,11 +16,16 @@ public class School {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private Integer csvIndex;
+
     private String nomeDep;
     private String de;
     private String mun;
     private String distr;
+
+    @Column(unique = true)
     private Integer codEsc;
+
     private String nomEsc;
     private Integer tipoEsc;
     private String tipoEscDesc;
