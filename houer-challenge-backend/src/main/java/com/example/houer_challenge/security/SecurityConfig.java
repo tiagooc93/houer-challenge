@@ -39,12 +39,6 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() // Allow all OPTIONS preflight requests
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/product/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/review/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/shopping/**").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/api/shopping/**").permitAll()
-                        .requestMatchers("/ws/**").permitAll()
-                        .requestMatchers("/uploads/images/**").permitAll()
 
                         .anyRequest().authenticated()
                 )
