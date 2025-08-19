@@ -43,7 +43,7 @@ Para rodar esse projeto, tenha certeza de que possui o **Docker** instalado. Voc
 1. **Clone o repositório:**
 
 ```bash
-   git clone https://github.com/tiagooc93/houer-challenge
+   git clone git@github.com:tiagooc93/houer-challenge.git
    cd houer-challenge
 ```
 
